@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Minhas Coisas/Cenas de Nós/Arbusto.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Minhas Coisas/Cenas de Nós/Jogador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Action RPG Resources/World/GrassBackground.png" type="Texture" id=3]
+[ext_resource path="res://Action RPG Resources/World/DirtTileset.png" type="Texture" id=4]
+
+[sub_resource type="TileSet" id=1]
+0/name = "DirtTileset.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 192, 96 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [  ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Mundo" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 160, 90 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 320, 180 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Jogador" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 88, 48 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StaticBody2D"]
+polygon = PoolVector2Array( 0, 0, 48, 0, 48, 152, 272, 152, 272, 0, 320, 0, 320, 184, 0, 184 )
+
+[node name="StaticBody2D2" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 136, 64 )
