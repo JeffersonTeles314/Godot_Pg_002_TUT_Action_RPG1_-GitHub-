@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="(Projeto Tutorial 2) Action RPG"
+config/name="Pg_002_TUT_Action_RPG1 -GitHub-"
 run/main_scene="res://Minhas Coisas/Cenas/Nó.tscn"
 config/icon="res://icon.png"
 
